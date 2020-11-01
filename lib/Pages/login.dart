@@ -96,8 +96,10 @@ class _LoginState extends State<Login> {
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock,color: Colors.blueAccent,size: 20,),
                     labelText: 'Password',
-                    border: null,
-                    suffixIcon: Icon(Icons.remove_red_eye)
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(color: Colors.blue)),
+                    suffixIcon: Icon(Icons.remove_red_eye),
                 ),
               ),
             ),
