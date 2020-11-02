@@ -56,7 +56,6 @@ class _RegisterState extends State<Register> {
           labelText: 'Username',
           border: null,
         ),
-        maxLength: 10,
         keyboardType: TextInputType.text,
         // ignore: missing_return
         validator: (String value){

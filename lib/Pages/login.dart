@@ -11,7 +11,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  TextEditingController userCtr=new TextEditingController();
+  TextEditingController mobileCtr=new TextEditingController();
   TextEditingController pwdCrt=new TextEditingController();
 
   String msg='';
@@ -19,29 +19,29 @@ class _LoginState extends State<Login> {
   Future _login() async{
     var url="https://flutter5072.000webhostapp.com/login.php";
     var response=await http.post(url,body: {
-      "username":userCtr.text,
+      "mobile":mobileCtr.text,
       "password":pwdCrt.text,
     });
 
-    var datausr=json.decode(response.body);
-    if(datausr.length==0)
+    var dataUsr=json.decode(response.body);
+    if(dataUsr.length==0)
     {
       setState(() {
         msg="login failed";
       });
     }else{
-      if(datausr[0]['role']=="1"){
+      if(dataUsr[0]['role']=="1"){
         Navigator.pushReplacementNamed(context, 'Home');
 
-      }else if(datausr[0]['role']=="0"){
+      }else if(dataUsr[0]['role']=="0"){
         Navigator.pushReplacementNamed(context, 'Home');
       }
       setState(() {
-        username=datausr[0]['username'];
+        username=dataUsr[0]['username'];
 
       });
     }
-    return datausr;
+    return dataUsr;
   }
 
 
@@ -75,12 +75,12 @@ class _LoginState extends State<Login> {
               child: Text("Login to your account",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.w300),),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30,top:23,bottom: 20),
+              padding: const EdgeInsets.only(top: 20,bottom: 5,left: 30,right: 30),
               child: TextFormField(
-                controller: userCtr,
+                controller: mobileCtr,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email,color: Colors.blueAccent,size: 20,),
-                  labelText: 'Username',
+                  prefixIcon: Icon(Icons.call,color: Colors.blueAccent,size: 20,),
+                  labelText: 'Enter Mobile',
                   border:  OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       borderSide: BorderSide(color: Colors.blue))
@@ -88,7 +88,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30,top:1,bottom: 20),
+              padding: const EdgeInsets.only(top: 5,bottom: 10,left: 30,right: 30),
               child: TextFormField(
                 obscureText: true,
                 obscuringCharacter: "*",
@@ -103,8 +103,27 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, 'ForgetPassword?');
+              },
+              child: RichText(
+                text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Forget Password?',
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      )
+                    ]
+                ),
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.only(right: 80,left: 80),
+              padding: const EdgeInsets.only(right:20,left: 20),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Container(
