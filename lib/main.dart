@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sign Up Screen ',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'SignIn',
+      initialRoute: '/SignIn',
       routes: {
-        'SignIn':(context)=>Login(),
-        'SignUp':(context)=>Register(),
-        'Home':(context)=>HomePage(username: username,),
+        '/SignIn':(context)=>Login(),
+        '/SignUp':(context)=>Register(),
+        '/Home':(context)=>HomePage(username: username,),
       },
     );
   }

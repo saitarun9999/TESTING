@@ -185,7 +185,7 @@ class _RegisterState extends State<Register> {
                         }else{
                           _register();
                           clearTextInput();
-                          Navigator.pushNamed(context, 'SignIn');
+                          Navigator.pushNamed(context, '/SignIn');
 
                         }
                         _formkey.currentState.save();

@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
                   child: GridView(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:4,
-                      childAspectRatio: 3/4,
+                      childAspectRatio: 3/3,
                     ),
                     children: [
                       _gridItem(AssetImage("assets/images/Home.png"),"Home"),
@@ -119,7 +119,7 @@ class AppbarButtonWidget extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            Navigator.pushReplacementNamed(context,'SignIn');
+                            Navigator.pushReplacementNamed(context,'/SignIn');
                           }
                       ),
                       Text(

@@ -32,10 +32,10 @@ class _LoginState extends State<Login> {
       });
     }else{
       if(dataUsr[0]['role']=="1"){
-        Navigator.pushReplacementNamed(context, 'Home');
+        Navigator.pushReplacementNamed(context, '/Home');
 
       }else if(dataUsr[0]['role']=="0"){
-        Navigator.pushReplacementNamed(context, 'Home');
+        Navigator.pushReplacementNamed(context, '/Home');
       }
       setState(() {
         username=dataUsr[0]['username'];
@@ -153,7 +153,7 @@ class _LoginState extends State<Login> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, 'SignUp');
+                Navigator.pushNamed(context, '/SignUp');
               },
               child: Center(
                 child: RichText(
