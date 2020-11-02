@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:google_fonts/google_fonts.dart';
 
 import '../main.dart';
 
@@ -27,7 +28,7 @@ class _LoginState extends State<Login> {
     if(dataUsr.length==0)
     {
       setState(() {
-        msg="login failed";
+        msg="Invalid username & password";
       });
     }else{
       if(dataUsr[0]['role']=="1"){
@@ -72,36 +73,38 @@ class _LoginState extends State<Login> {
               height: 50,
             ),
             Container(
-              child: Text("Login to your account",style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.w300),),
+              child: Text("Login to your account",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w300),),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20,bottom: 5,left: 30,right: 30),
               child: TextFormField(
                 controller: mobileCtr,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.call,color: Colors.blueAccent,size: 20,),
-                  labelText: 'Enter Mobile',
-                  border:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(color: Colors.blue))
+                    fillColor: Colors.blueAccent,
+                    prefixIcon: Icon(Icons.call,color: Colors.blueAccent,size: 20,),
+                    labelText: 'Enter Mobile',
+                    border:  InputBorder.none,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 5,bottom: 10,left: 30,right: 30),
+              padding: const EdgeInsets.only(bottom: 2,left: 30,right: 30),
               child: TextFormField(
                 obscureText: true,
                 obscuringCharacter: "*",
                 controller: pwdCrt,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock,color: Colors.blueAccent,size: 20,),
-                    labelText: 'Password',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.blue)),
-                    suffixIcon: Icon(Icons.remove_red_eye),
+                  prefixIcon: Icon(Icons.lock,color: Colors.blueAccent,size: 20,),
+                  labelText: 'Enter Password',
+                  border: InputBorder.none,
                 ),
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             InkWell(
               onTap: () {
@@ -111,7 +114,7 @@ class _LoginState extends State<Login> {
                 text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Forget Password?',
+                        text: 'Forgot Password?',
                         style: TextStyle(
                           color: Colors.blueAccent,
                           fontWeight: FontWeight.bold,
@@ -122,17 +125,20 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: const EdgeInsets.only(right:20,left: 20),
+              padding: const EdgeInsets.only(top: 10,bottom: 5),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Container(
-                  height: 50,
+                  height: 35,
                   child: new RaisedButton(
-                      child: Text("Sign In",style: TextStyle(
+                      child: Text("LOGIN",style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontSize: 22,
+                        fontSize: 18,
                       ),),
                       color: Colors.blueAccent.shade400,
                       onPressed: (){
@@ -142,7 +148,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-
             SizedBox(
               height: 20,
             ),
@@ -153,7 +158,7 @@ class _LoginState extends State<Login> {
               child: Center(
                 child: RichText(
                   text: TextSpan(
-                      text: msg,
+                      text: "Don't have an Account?",
                       style: TextStyle(color: Colors.black),
                       children: [
                         TextSpan(
@@ -164,12 +169,25 @@ class _LoginState extends State<Login> {
                             fontSize: 15,
                           ),
                         )
-
                       ]
                   ),
                 ),
               ),
-            )
+            ),
+            SizedBox(
+              height:5,
+            ),
+            Center(
+              child: RichText(
+                text: TextSpan(
+                    text: msg,
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16,
+                    ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

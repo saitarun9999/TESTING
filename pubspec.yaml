@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   http: ^0.12.1
   fluttertoast: ^7.1.1
+  google_fonts: ^1.1.1
   flutter_session: ^0.1.1
 
 dev_dependencies:

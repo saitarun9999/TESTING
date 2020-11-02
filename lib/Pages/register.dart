@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -54,7 +55,7 @@ class _RegisterState extends State<Register> {
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.person,color: Colors.blueAccent,size: 20,),
           labelText: 'Username',
-          border: null,
+          border: InputBorder.none,
         ),
         keyboardType: TextInputType.text,
         // ignore: missing_return
@@ -73,13 +74,13 @@ class _RegisterState extends State<Register> {
 
   Widget _buildEmail(){
     return Padding(
-      padding: const EdgeInsets.only(right: 32,top: 10,left: 32),
+      padding: const EdgeInsets.only(right: 32,top: 5,left: 32),
       child: TextFormField(
         controller: mail,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.email,color: Colors.blueAccent,size: 20,),
           labelText: 'Email',
-          border: null,
+          border: InputBorder.none,
         ),
           keyboardType: TextInputType.emailAddress,
           // ignore: missing_return
@@ -103,13 +104,13 @@ class _RegisterState extends State<Register> {
 
   Widget _buildMobile(){
     return Padding(
-      padding: const EdgeInsets.only(right: 32,top: 10,left: 32),
+      padding: const EdgeInsets.only(right: 32,top: 5,left: 32),
       child: TextFormField(
         controller: mob,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.call,color: Colors.blueAccent,size: 20,),
           labelText: 'Mobile',
-          border: null,
+          border: InputBorder.none,
         ),
           keyboardType: TextInputType.phone,
           // ignore: missing_return
@@ -129,7 +130,7 @@ class _RegisterState extends State<Register> {
   
   Widget _buildPassword(){
     return Padding(
-      padding: const EdgeInsets.only(right: 32,top: 10,left: 32),
+      padding: const EdgeInsets.only(right: 32,top: 5,left: 32),
       child: TextFormField(
         obscureText: true,
         obscuringCharacter: "*",
@@ -137,7 +138,7 @@ class _RegisterState extends State<Register> {
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.lock,color: Colors.blueAccent,size: 20,),
           labelText: 'Password',
-          border: null,
+          border: InputBorder.none,
         ),
           keyboardType: TextInputType.visiblePassword,
           // ignore: missing_return
@@ -176,7 +177,7 @@ class _RegisterState extends State<Register> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Container(
-                    height: 50,
+                    height: 35,
                     child: new RaisedButton(
                       onPressed: (){
                         if(!_formkey.currentState.validate()){
@@ -192,7 +193,7 @@ class _RegisterState extends State<Register> {
                       child: Text("Sign up",style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontSize: 22,
+                        fontSize: 16,
                       ),),
                       color: Colors.blueAccent.shade400,
                     ),
@@ -217,7 +218,7 @@ class BackButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 450,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(bottomLeft:Radius.circular(100)),
           image: DecorationImage(
